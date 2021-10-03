@@ -1,39 +1,38 @@
-let carLenght = 50;
+//Car setup
+let xCars = [600, 600, 600, 600, 600, 600];
+let yCars = [42, 96, 150, 210, 264, 318];
+let carSpeed = [5, 4, 3, 7, 6, 8];
+let carWidth = 50;
 let carHeight = 40;
 
-//car1
-let xCar = 420;
-let yCar = 96;
-let carSpeed = 3;
-
-//car2
-let xCar2 = 420;
-let yCar2 = 150;
-let carSpeed2 = 5;
-
-//car3
-let xCar3 = 420;
-let yCar3 = 210;
-let carSpeed3 = 4;
-
+//Load cars
 function showCar(){
-  image(carImage, xCar, yCar, carLenght, carHeight);
-  image(carImage2, xCar2, yCar2, carLenght, carHeight);
-  image(carImage3, xCar3, yCar3, carLenght, carHeight);
+  for (let i = 0; i < carImage.length; i++) {
+    image(carImage[i], xCars[i], yCars[i], carWidth, carHeight);
+  }
 }
 
+//Moving the cars
 function moveCar(){
-  xCar -= carSpeed;
-  xCar2 -= carSpeed2;
-  xCar3 -= carSpeed3;
+  for(let i = 0; i < carImage.length; i++) {
+    xCars[i] -= carSpeed[i];
+  }
   loopCar();
 }
 
+//Loop
 function loopCar (){
-  if (xCar < -50) {
-    xCar = 600;
+  for(let i = 0; i < carImage.length; i++) {
+    if (endRoad(xCars[i])) {
+      xCars[i] = 600;
+    }
   }
-  
+}
+
+//Function for validate the loop
+function endRoad(xCar) {
+  return xCar < -50;
+}
   if (xCar2 < -50) {
     xCar2 = 600;
   }
