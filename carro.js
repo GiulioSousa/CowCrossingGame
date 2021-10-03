@@ -33,11 +33,3 @@ function loopCar (){
 function endRoad(xCar) {
   return xCar < -50;
 }
-  if (xCar2 < -50) {
-    xCar2 = 600;
-  }
-  
-   if (xCar3 < -50) {
-    xCar3 = 600;
-  }
-}
